@@ -5,11 +5,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "RequestURI: %s\n", r.RequestURI)
 	fmt.Fprintf(w, "User-Agent: %s\n", r.Header.Get("User-Agent"))
+	fmt.Fprintf(w, "\n")
+	fmt.Fprintf(w, "Current time: %s\n", time.Now().String())
 }
 
 func main() {
